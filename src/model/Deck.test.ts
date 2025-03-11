@@ -1,23 +1,24 @@
-import { Card, CardName } from './Card';
-import { Deck } from './Deck';
+import { CardName } from "../components/types";
+import { Deck } from "./Deck";
+
 
 describe("Deck", () => {
   describe("shuffle", () => {
     test("Shuffles appropriately", () => {
-      const d = new Deck([new Card(CardName.UP), new Card(CardName.DOWN)]);
+      const d = new Deck([CardName.UP, CardName.DOWN]);
       d.shuffle();
-      expect(true) // Just make sure it doesn't error out!
+      expect(d.length()).toBe(2)
     })
 
     test("Draw works", () => {
       const d = Deck.makeBaseDeck();
       d.shuffle();
-      const first = d.draw();
-      expect(!!first);
-      expect(first?.name === "UP" || first?.name === "DOWN" || first?.name === "LEFT" || first?.name === "RIGHT");
+      let card = d.draw();
+      expect(card).toBeDefined();
       // We should also be able to draw 19 more times
-      for (let i = 0; i < 19; i++) {
-        expect(!!d.draw());
+      for (let i = 0; i < 15; i++) {
+        card = d.draw();
+        expect(card).toBeDefined();
       }
       expect(d.draw() === undefined);
     })

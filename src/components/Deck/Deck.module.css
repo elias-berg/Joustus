@@ -1,0 +1,14 @@
+.deck {
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+  border: 1px solid black;
+}
+
+.p1 {
+  background-image: url("assets/back1.webp");
+}
+
+.p2 {
+  background-image: url("assets/back2.webp");
+}

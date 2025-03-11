@@ -1,8 +1,9 @@
-import { Card } from "./Card";
+
+import { CardName } from "../components/types";
 import { Deck } from "./Deck";
 
 export class Player {
-  private _hand: [Card, Card, Card];
+  private _hand: [CardName, CardName, CardName];
   private _deck: Deck;
 
   public constructor() {
@@ -16,7 +17,7 @@ export class Player {
     ];
   }
 
-  public get hand() {
+  public hand() {
     return this._hand;
   }
 }

@@ -7,8 +7,10 @@
   align-items: center;
 }
 
-.card {
+.dragCard {
   height: 100px;
   width: 100px;
-  cursor: grab;
+  position: absolute;
+  cursor: grabbing !important;
 }
+

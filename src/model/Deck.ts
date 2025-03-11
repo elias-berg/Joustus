@@ -1,13 +1,14 @@
-import { Card, CardName } from "./Card";
+import { CardName } from "../components/types";
 
 export class Deck {
   // The cards that comprise the deck, in no particular order.
-  private _cards: Card[];
+  private _cards: CardName[];
   // A shuffled version of the cards comprising the deck, for playing.
-  private _deck: Card[];
+  private _deck: CardName[];
 
-  public constructor(cards: Card[]) {
+  public constructor(cards: CardName[]) {
     this._cards = cards;
+    this._deck = [];
   }
 
   private randomIdx(min: number, max: number) {
@@ -18,16 +19,19 @@ export class Deck {
     this._deck = [];
     let toShuffle = this._cards.slice();
     while (toShuffle.length > 0) {
-      const idx = this.randomIdx(0, toShuffle.length);
+      const idx = this.randomIdx(0, toShuffle.length - 1);
       const card = toShuffle[idx];
-      toShuffle = toShuffle.slice(0, idx).concat(toShuffle.slice(idx + 1))
+      toShuffle = toShuffle.slice(0, idx).concat(...toShuffle.slice(idx + 1))
       this._deck.push(card);
     }
+    console.log(this._deck)
   }
 
   public draw() {
-    const card = this._deck.pop();
-    return card;
+    if (this._deck.length === 0) {
+      return undefined;
+    }
+    return this._deck.pop();
   }
 
   public length() {
@@ -36,22 +40,22 @@ export class Deck {
 
   public static makeBaseDeck() {
     return new Deck([
-      Card.make(CardName.UP),
-      Card.make(CardName.UP),
-      Card.make(CardName.UP),
-      Card.make(CardName.UP),
-      Card.make(CardName.DOWN),
-      Card.make(CardName.DOWN),
-      Card.make(CardName.DOWN),
-      Card.make(CardName.DOWN),
-      Card.make(CardName.LEFT),
-      Card.make(CardName.LEFT),
-      Card.make(CardName.LEFT),
-      Card.make(CardName.LEFT),
-      Card.make(CardName.RIGHT),
-      Card.make(CardName.RIGHT),
-      Card.make(CardName.RIGHT),
-      Card.make(CardName.RIGHT),
+      CardName.UP,
+      CardName.UP,
+      CardName.UP,
+      CardName.UP,
+      CardName.DOWN,
+      CardName.DOWN,
+      CardName.DOWN,
+      CardName.DOWN,
+      CardName.LEFT,
+      CardName.LEFT,
+      CardName.LEFT,
+      CardName.LEFT,
+      CardName.RIGHT,
+      CardName.RIGHT,
+      CardName.RIGHT,
+      CardName.RIGHT
     ]);
   }
 }

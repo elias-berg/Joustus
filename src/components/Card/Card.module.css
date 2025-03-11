@@ -1,0 +1,11 @@
+
+
+.card {
+  height: 100px;
+  width: 100px;
+  cursor: grab;
+}
+
+.card:active {
+  cursor: grabbing;
+}

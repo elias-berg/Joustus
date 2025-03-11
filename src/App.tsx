@@ -1,14 +1,15 @@
 import { Board } from "./components/Board";
 import { Player } from "./components/Player";
 import styles from "./App.module.css";
+import { PlayerNumber } from "./components/types";
 
 function App() {
   return (
     <>
       <div className={styles.container}>
-        <Player />
+        <Player which={PlayerNumber.ONE} />
         <Board />
-        <Player />
+        <Player which={PlayerNumber.TWO} />
       </div>
     </>
   );
