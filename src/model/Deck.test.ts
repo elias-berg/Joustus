@@ -1,11 +1,12 @@
-import { CardName } from "../components/types";
+import { CardName } from "../types";
+import Card from "./Card";
 import { Deck } from "./Deck";
 
 
 describe("Deck", () => {
   describe("shuffle", () => {
     test("Shuffles appropriately", () => {
-      const d = new Deck([CardName.UP, CardName.DOWN]);
+      const d = new Deck([new Card(CardName.UP), new Card(CardName.DOWN)]);
       d.shuffle();
       expect(d.length()).toBe(2)
     })

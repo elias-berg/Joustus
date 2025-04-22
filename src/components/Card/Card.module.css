@@ -3,9 +3,11 @@
 .card {
   height: 100px;
   width: 100px;
-  cursor: grab;
+  cursor: pointer;
+  padding: 3px;
 }
 
-.card:active {
-  cursor: grabbing;
+.active {
+  padding: 0;
+  border: 3px solid blue;
 }

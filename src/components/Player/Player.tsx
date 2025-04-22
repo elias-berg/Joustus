@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { act, useState } from "react";
+import { Card as CardModel } from "../../model/Card";
 import { Player as PlayerModel } from "../../model/Player";
 import styles from "./Player.module.css";
 import { Card } from "../Card";
-import { PlayerNumber } from "../types";
+import { PlayerNumber } from "../../types";
 import { Deck } from "../Deck";
 
 interface PlayerProps {
@@ -11,6 +12,9 @@ interface PlayerProps {
 
 export const Player = ({ which }: PlayerProps) => {
   const [player, setPlayer] = useState(new PlayerModel());
+  const [activeCard, setActiveCard] = useState<CardModel | undefined>(
+    undefined
+  );
 
   return (
     <>
@@ -22,9 +26,14 @@ export const Player = ({ which }: PlayerProps) => {
         {player.hand().map((c, i) => (
           <Card
             key={i}
-            name={c}
-            onDragStart={(e) => {
+            name={c.name}
+            which={which}
+            isActive={c === activeCard}
+            onClick={(e) => {
               e.preventDefault();
+              if (which === PlayerNumber.ONE) {
+                setActiveCard(c);
+              }
             }}
           />
         ))}

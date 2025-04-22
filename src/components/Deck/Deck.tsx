@@ -1,4 +1,4 @@
-import { PlayerNumber } from "../types";
+import { PlayerNumber } from "../../types";
 import styles from "./Deck.module.css";
 
 interface DeckProps {

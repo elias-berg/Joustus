@@ -1,9 +1,9 @@
 
-import { CardName } from "../components/types";
+import Card from "./Card";
 import { Deck } from "./Deck";
 
 export class Player {
-  private _hand: [CardName, CardName, CardName];
+  private _hand: [Card, Card, Card];
   private _deck: Deck;
 
   public constructor() {

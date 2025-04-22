@@ -1,12 +1,13 @@
-import { CardName } from "../components/types";
+import { CardName } from "../types";
+import Card from "./Card";
 
 export class Deck {
   // The cards that comprise the deck, in no particular order.
-  private _cards: CardName[];
+  private _cards: Card[];
   // A shuffled version of the cards comprising the deck, for playing.
-  private _deck: CardName[];
+  private _deck: Card[];
 
-  public constructor(cards: CardName[]) {
+  public constructor(cards: Card[]) {
     this._cards = cards;
     this._deck = [];
   }
@@ -40,22 +41,22 @@ export class Deck {
 
   public static makeBaseDeck() {
     return new Deck([
-      CardName.UP,
-      CardName.UP,
-      CardName.UP,
-      CardName.UP,
-      CardName.DOWN,
-      CardName.DOWN,
-      CardName.DOWN,
-      CardName.DOWN,
-      CardName.LEFT,
-      CardName.LEFT,
-      CardName.LEFT,
-      CardName.LEFT,
-      CardName.RIGHT,
-      CardName.RIGHT,
-      CardName.RIGHT,
-      CardName.RIGHT
+      new Card(CardName.UP),
+      new Card(CardName.UP),
+      new Card(CardName.UP),
+      new Card(CardName.UP),
+      new Card(CardName.DOWN),
+      new Card(CardName.DOWN),
+      new Card(CardName.DOWN),
+      new Card(CardName.DOWN),
+      new Card(CardName.LEFT),
+      new Card(CardName.LEFT),
+      new Card(CardName.LEFT),
+      new Card(CardName.LEFT),
+      new Card(CardName.RIGHT),
+      new Card(CardName.RIGHT),
+      new Card(CardName.RIGHT),
+      new Card(CardName.RIGHT),
     ]);
   }
 }

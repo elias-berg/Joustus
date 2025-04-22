@@ -1,24 +1,19 @@
-.container {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  box-sizing: border-box;
-  grid-gap: 1px;
+.grid {
+  border-collapse: collapse;
+  table-layout: fixed;
 }
 
 .space {
   width: 100px;
   height: 100px;
-  outline: 1px dotted black;
 }
 
 .out-of-bounds {
   background-color: rgba(184, 134, 11, 0.5);
-  outline: 1px solid black;
+  border: 1px solid black;
 }
 
 .in-bounds {
   background-color: rgb(218, 165, 32);
-  outline: 1px solid black;
+  border: 1px solid black;
 }

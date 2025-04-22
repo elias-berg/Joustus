@@ -7,10 +7,3 @@
   align-items: center;
 }
 
-.dragCard {
-  height: 100px;
-  width: 100px;
-  position: absolute;
-  cursor: grabbing !important;
-}
-
